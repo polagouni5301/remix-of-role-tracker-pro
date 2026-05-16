@@ -25,11 +25,21 @@ export function AuthProvider({ children }) {
       isLoading: !!session && meQ.isLoading,
       isAuthed: !!meQ.data,
       isAdmin: !!meQ.data?.isAdmin,
-      async signIn(payload) {
-        const u = await authApi.login(payload);
+      async lookup(email) { return authApi.lookupEmail(email); },
+      async signInWithPassword(payload) {
+        const u = await authApi.signInWithPassword(payload);
         setSession({ userId: u.id });
         return u;
       },
+      async register(payload) {
+        return authApi.register(payload);
+      },
+      async setupPassword(payload) {
+        const u = await authApi.setupPassword(payload);
+        setSession({ userId: u.id });
+        return u;
+      },
+      getPendingSetup: authApi.getPendingSetup,
       async signOut() {
         await authApi.logout();
         setSession(null);
@@ -66,7 +76,10 @@ export function RequireAdmin({ children }) {
 function FullscreenSpinner() {
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <div className="h-10 w-10 animate-spin rounded-full border-2 border-muted border-t-primary" />
+      <div className="relative h-12 w-12">
+        <div className="absolute inset-0 rounded-full border-2 border-muted" />
+        <div className="absolute inset-0 animate-spin rounded-full border-2 border-transparent border-t-primary" />
+      </div>
     </div>
   );
 }

@@ -48,34 +48,35 @@
 }
 
 :root {
-  --radius: 0.875rem;
+  --radius: 0.9rem;
 
-  --background: oklch(0.985 0.005 250);
-  --foreground: oklch(0.18 0.03 260);
+  /* Corporate, slightly cool, near-white canvas */
+  --background: oklch(0.985 0.004 250);
+  --foreground: oklch(0.16 0.025 260);
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.03 260);
+  --card-foreground: oklch(0.16 0.025 260);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.03 260);
+  --popover-foreground: oklch(0.16 0.025 260);
 
-  --primary: oklch(0.45 0.18 268);
+  --primary: oklch(0.42 0.17 268);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.96 0.01 255);
-  --secondary-foreground: oklch(0.22 0.04 265);
-  --muted: oklch(0.96 0.008 255);
-  --muted-foreground: oklch(0.5 0.03 258);
-  --accent: oklch(0.95 0.025 270);
-  --accent-foreground: oklch(0.22 0.05 265);
+  --secondary: oklch(0.965 0.008 255);
+  --secondary-foreground: oklch(0.2 0.04 265);
+  --muted: oklch(0.965 0.006 255);
+  --muted-foreground: oklch(0.48 0.025 258);
+  --accent: oklch(0.955 0.022 270);
+  --accent-foreground: oklch(0.2 0.05 265);
 
   --destructive: oklch(0.6 0.23 27);
   --destructive-foreground: oklch(0.99 0 0);
-  --success: oklch(0.62 0.16 155);
+  --success: oklch(0.6 0.16 155);
   --success-foreground: oklch(0.99 0 0);
   --warning: oklch(0.78 0.16 75);
   --warning-foreground: oklch(0.2 0.04 80);
 
-  --border: oklch(0.92 0.012 260);
-  --input: oklch(0.92 0.012 260);
+  --border: oklch(0.925 0.01 260);
+  --input: oklch(0.925 0.01 260);
   --ring: oklch(0.55 0.18 268);
 
   --chart-1: oklch(0.6 0.22 268);
@@ -86,44 +87,62 @@
 
   --sidebar: oklch(0.99 0.003 250);
   --sidebar-foreground: oklch(0.22 0.04 265);
-  --sidebar-primary: oklch(0.45 0.18 268);
+  --sidebar-primary: oklch(0.42 0.17 268);
   --sidebar-primary-foreground: oklch(0.99 0 0);
   --sidebar-accent: oklch(0.95 0.02 270);
   --sidebar-accent-foreground: oklch(0.22 0.05 265);
-  --sidebar-border: oklch(0.92 0.012 260);
+  --sidebar-border: oklch(0.925 0.01 260);
   --sidebar-ring: oklch(0.55 0.18 268);
 
-  /* default role accent (overridden per-role via data-role) */
-  --role-c1: #7c3aed;
+  /* Default role accent */
+  --role-c1: #6366f1;
   --role-c2: #a78bfa;
-  --role-glow: rgba(124, 58, 237, 0.32);
+  --role-glow: rgba(99, 102, 241, 0.32);
+
+  /* Premium tokens */
+  --shadow-xs: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.06), 0 1px 3px 0 rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 18px 40px -18px rgba(15, 23, 42, 0.22), 0 4px 12px -6px rgba(15, 23, 42, 0.08);
+  --shadow-xl: 0 30px 60px -25px rgba(15, 23, 42, 0.28), 0 8px 24px -12px rgba(15, 23, 42, 0.12);
+  --shadow-role: 0 18px 50px -20px var(--role-glow);
+
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-role="Supervisor"] { --role-c1:#EF4444; --role-c2:#F87171; --role-glow:rgba(239,68,68,.32); }
-[data-role="Manager"]    { --role-c1:#7C3AED; --role-c2:#A78BFA; --role-glow:rgba(124,58,237,.32); }
+[data-role="Manager"]    { --role-c1:#6366F1; --role-c2:#A78BFA; --role-glow:rgba(99,102,241,.32); }
 [data-role="QA"]         { --role-c1:#2563EB; --role-c2:#60A5FA; --role-glow:rgba(37,99,235,.32); }
 [data-role="Trainer"]    { --role-c1:#10B981; --role-c2:#34D399; --role-glow:rgba(16,185,129,.32); }
 [data-role="WFM"]        { --role-c1:#F59E0B; --role-c2:#FBBF24; --role-glow:rgba(245,158,11,.32); }
 [data-role="BA"]         { --role-c1:#06B6D4; --role-c2:#22D3EE; --role-glow:rgba(6,182,212,.32); }
-[data-role="BlackBelt"]  { --role-c1:#EC4899; --role-c2:#F472B6; --role-glow:rgba(236,72,153,.32); }
+[data-role="BlackBelt"]  { --role-c1:#0F172A; --role-c2:#475569; --role-glow:rgba(15,23,42,.35); }
 
 @layer base {
   * { border-color: var(--color-border); }
   html, body, #root { min-height: 100%; }
   body {
     background:
-      radial-gradient(1200px 600px at 90% -10%, color-mix(in oklab, var(--role-c1) 14%, transparent), transparent 60%),
-      radial-gradient(900px 500px at -10% 110%, color-mix(in oklab, var(--role-c2) 12%, transparent), transparent 60%),
-      var(--color-background);
+      radial-gradient(1200px 600px at 88% -12%, color-mix(in oklab, var(--role-c1) 11%, transparent), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, color-mix(in oklab, var(--role-c2) 9%, transparent), transparent 60%),
+      linear-gradient(180deg, var(--color-background), color-mix(in oklab, var(--color-background) 92%, var(--role-c1) 2%));
     color: var(--color-foreground);
-    font-feature-settings: "cv02","cv03","cv04","cv11";
+    font-feature-settings: "cv02","cv03","cv04","cv11","ss01";
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
+  ::selection { background: color-mix(in oklab, var(--role-c1) 30%, transparent); }
 }
 
 @layer utilities {
   .role-gradient {
     background-image: linear-gradient(135deg, var(--role-c1), var(--role-c2));
+  }
+  .role-gradient-soft {
+    background-image: linear-gradient(135deg,
+      color-mix(in oklab, var(--role-c1) 14%, transparent),
+      color-mix(in oklab, var(--role-c2) 10%, transparent));
   }
   .role-text {
     background-image: linear-gradient(135deg, var(--role-c1), var(--role-c2));
@@ -131,15 +150,85 @@
     background-clip: text;
     color: transparent;
   }
-  .role-ring { box-shadow: 0 0 0 1px color-mix(in oklab, var(--role-c1) 35%, transparent), 0 10px 40px -10px var(--role-glow); }
+  .role-border {
+    border: 1px solid color-mix(in oklab, var(--role-c1) 38%, transparent);
+  }
+  .role-ring {
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--role-c1) 30%, transparent),
+      var(--shadow-role);
+  }
+  .role-ring-soft {
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--role-c1) 18%, transparent),
+      0 8px 28px -16px var(--role-glow);
+  }
   .surface {
-    background: color-mix(in oklab, var(--card) 92%, transparent);
-    backdrop-filter: blur(8px);
+    background: color-mix(in oklab, var(--card) 88%, transparent);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--color-border);
   }
   .surface-elevated {
     background: var(--card);
     border: 1px solid var(--color-border);
-    box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 10px 30px -18px rgba(15, 23, 42, .25);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.6) inset,
+      var(--shadow-md);
+  }
+  .surface-premium {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.6), rgba(255,255,255,0)) ,
+      var(--card);
+    border: 1px solid color-mix(in oklab, var(--color-border) 70%, transparent);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.7) inset,
+      var(--shadow-lg);
+  }
+  .ring-focus:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--role-c1) 25%, transparent);
+  }
+
+  /* Premium animations */
+  @keyframes float-slow {
+    0%,100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-12px) translateX(6px); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  @keyframes pop-in {
+    0% { transform: scale(.6); opacity: 0; }
+    60% { transform: scale(1.08); opacity: 1; }
+    100% { transform: scale(1); }
+  }
+  @keyframes sparkle-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--role-c1) 50%, transparent); }
+    70% { box-shadow: 0 0 0 14px transparent; }
+    100% { box-shadow: 0 0 0 0 transparent; }
+  }
+  .animate-float-slow { animation: float-slow 9s var(--ease-smooth) infinite; }
+  .animate-pop-in { animation: pop-in .5s var(--ease-spring) both; }
+  .animate-pulse-ring { animation: pulse-ring 1.8s var(--ease-smooth) infinite; }
+  .shimmer {
+    background-image: linear-gradient(90deg,
+      transparent 0%,
+      color-mix(in oklab, var(--role-c1) 14%, transparent) 50%,
+      transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2.4s linear infinite;
+  }
+
+  /* Conic mesh used as login background accent */
+  .mesh-bg {
+    background:
+      radial-gradient(60% 60% at 20% 20%, color-mix(in oklab, var(--role-c1) 22%, transparent), transparent 60%),
+      radial-gradient(50% 50% at 80% 30%, color-mix(in oklab, var(--role-c2) 18%, transparent), transparent 60%),
+      radial-gradient(50% 50% at 60% 90%, color-mix(in oklab, var(--role-c1) 14%, transparent), transparent 60%);
   }
 }
